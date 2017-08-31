@@ -7,7 +7,7 @@ export default {
 	output: {
 		path: path.join(__dirname, 'dist'),
 		publicPath: '/',
-		filename: 'application.js'
+		filename: 'application-[hash].min.js'
 	},
 	module: {
 		rules: [
@@ -63,11 +63,23 @@ export default {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin('application.css'),
+		new ExtractTextPlugin('application-[hash].min.css'),
 		new HtmlWebpackPlugin({
 			title: 'Telemark Fylkeskommune',
-			template: path.join(__dirname, 'assets/html/index.ejs'),
+			template: path.join(__dirname, 'assets/html/index.production.ejs'),
 			favicon: path.join(__dirname, 'assets/images/favicon.ico')
 		})
-	]
+	],
+	externals: {
+		"axios":"axios",
+		"react":"React",
+		"react-dom":"ReactDOM",
+		"prop-types":"PropTypes",
+		"react-redux":"ReactRedux",
+		"react-router":"ReactRouter",
+		"react-router-redux":"ReactRouterRedux",
+		"redux":"Redux",
+		"redux-thunk":"ReduxThunk",
+		"semantic-ui-react":"semanticUIReact"
+	}
 }
