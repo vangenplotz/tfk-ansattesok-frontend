@@ -14,4 +14,4 @@ install:
 script:
   - node -r babel-register node_modules/.bin/webpack -p --config webpack.config.production.js
 after_success:
-  - now --docker --token=${NOW_TOKEN} --no-clipboard -n tfk-ansattesok-frontend
+  - now --token=${NOW_TOKEN} --no-clipboard

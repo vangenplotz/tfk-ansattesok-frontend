@@ -1,3 +1,9 @@
 {
-    "alias": "tfk-ansattesok-frontend.vpdev.no"
+    "alias": "tfk-ansattesok-frontend.vpdev.no",
+    "name": "tfk-ansattesok-frontend",
+    "type": "docker",
+    "files": [
+        "Dockerfile",
+        "dist"
+    ]
 }
