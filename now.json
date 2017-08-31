@@ -4,6 +4,7 @@
     "type": "docker",
     "files": [
         "Dockerfile",
+        "nginx.conf",
         "dist"
     ]
 }
