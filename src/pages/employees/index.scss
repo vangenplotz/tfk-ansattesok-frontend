@@ -93,11 +93,26 @@ $breakpoint-large: $large;
 
 
 
+
+
+#app {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 600px;
+}
+
 // From Farte
 
-footer {
-  margin-bottom: 3em;
 
+.highlight--dark {
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 600px;
+}
+
+footer {
   a {
     text-decoration: none;
     &:hover {
@@ -181,100 +196,35 @@ footer {
 
 
 footer {
+  padding-top: 3rem;
+  display: flex;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  * > *, * {
+    color: white;
+    list-style: none;
+    font-family: $open-sans;
+  }
+
+
+  h3 {
+    font-size: 1.125rem;
+    font-family: $telefon;
+  }
 
   .column-4 {
+    flex-basis: 25%;
 
     &:last-child {
       margin-bottom:1em;
     }
-
-    li:before {
-      content: "";
-      width: 18px;
-      height: 18px;
-      background-image: url("/bundles/tfkfarte/images/icon/pil-lenker-01.svg");
-      position: absolute;
-      margin-top: 3px;
-      padding-right: 0;
-      margin-left: -1.75em;
-    }
-
-    li.buss,
-    li.ferge,
-    li.ruteopplysning {
-      font-weight: bold;
-    }
-
-
-    li.buss:before {
-      content: "";
-      width: 40px;
-      height: 33px;
-      background-image: url("/bundles/tfkfarte/images/icon/kontakt-buss.svg");
-      position: absolute;
-      margin-top: 4px;
-      padding-right: 0;
-      margin-left: -2.75em;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-
-
-    li.ferge:before {
-      content: "";
-      width: 40px;
-      height: 33px;
-      background-image: url("/bundles/tfkfarte/images/icon/kontakt-ferge.svg");
-      position: absolute;
-      margin-top: 2px;
-      padding-right: 0;
-      margin-left: -2.75em;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-
-    li.ruteopplysningen:before {
-      content: "";
-      width: 40px;
-      height: 33px;
-      background-image: url("/bundles/tfkfarte/images/icon/kontakt-ruteopplysning.svg");
-      position: absolute;
-      margin-top: 2px;
-      padding-right: 0;
-      margin-left: -2.75em;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-
-
-    @media screen and (min-width:600px) {
-
-
-      //@include span(3 of 12);
-
-      &:last-child {
-        //@include span(3 of 12 last);
-        padding-left: .5em;
-        box-sizing: border-box;
-      }
-    }
-
-    @media screen and(max-width:600px) {
-      // @include span(9 of 9);
-
-      .buss,
-      .ferge,
-      .ruteopplysningen {
-        margin-left:1em;
-      }
-
-    }
-
   }
 
   .column-custom {
-    font-size: 1.275em;
-    line-height: 1.5em;
     margin-top: -0.25em;
   }
 

@@ -8,7 +8,11 @@ export default class Application extends React.Component {
         return <div>
 					<Header />
 					{this.props.children}
-					<Footer />
+					<div className="content highlight--dark">
+                        <Container>
+                            <Footer />
+                        </Container>
+                    </div>
         </div>
     }
 }
