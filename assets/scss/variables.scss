@@ -1,0 +1,35 @@
+// Farger
+$black:                 #333;
+$key:                   #000;
+$white:                 #fff;
+$turkis-mett:           #01BDA1;
+$turkis:                #6AC4AE;
+$l-turkis:              #99E0CF;
+$yellow:                #FFD520;
+
+$gray:                  #DBDCD7;
+$l-gray:                #f3f4f5;
+$m-gray:                #ededed;
+$light-gray:            $l-gray;
+$gray-btn-border:       lighten($gray, 10%);
+$light-gray-border:     lighten($gray, 30%);
+$brandcolor:            $yellow;
+$gray-link:             $l-gray;
+
+
+// Typografiske variabler
+$open-sans:             'Open Sans', sans-serif;
+$telefon:               'Telefon', sans-serif;
+
+
+// Diverse variabler
+$box-shadow:            1px 0px 2px 0px rgba(0,0,0,0.25);
+$radius:                5px;
+
+
+// Breakpoints
+$medium:        500px;
+$large:         800px;
+
+$breakpoint-medium: $medium;
+$breakpoint-large: $large;
