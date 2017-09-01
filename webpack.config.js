@@ -73,13 +73,9 @@ export default {
 	devServer: {
 		disableHostCheck: true,
 		proxy: {
-			'**': {
+			'/api/**': {
 				target: 'http://api:3000',
-				bypass: (req, res, opts) => {
-					if (!req.headers.accept.match(/application\/json/)) {
-						return '/index.html';
-					}
-				}
+				pathRewrite: { '^/api': '' }
 			}
 		}
 	}

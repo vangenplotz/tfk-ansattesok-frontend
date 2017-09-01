@@ -1,24 +1,17 @@
 import { connect } from "react-redux"
-import Index from "../../pages/employees/index"
+import Show from "../../pages/employees/show"
 import * as employeeActions from "../../actions/employees"
 
-
 const mapStateToProps = (state, props) => {
-	const { results, numberOfHits, isLoading } = state.employeeSearch;
     return {
-    	results,
-			numberOfHits,
-			isLoading: isLoading
+    	employee: state.entities.employees.entities[props.params.id]
     }
 };
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
     	componentDidMount: () => {
-				dispatch(employeeActions.searchByFullName(''));
-			},
-    	onChange: (q) => {
-    		dispatch(employeeActions.searchByFullName(q));
+    		dispatch(employeeActions.searchById(props.params.id))
 			}
     }
 };
@@ -26,4 +19,4 @@ const mapDispatchToProps = (dispatch, props) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Index);
+)(Show);

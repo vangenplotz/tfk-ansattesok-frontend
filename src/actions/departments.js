@@ -25,7 +25,7 @@ export const findAll = (from = 0, size = 100) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch(findAllRequest());
-			const response = await axios.get('/departments', { params: { from, size }});
+			const response = await axios.get('/api/departments', { params: { from, size }});
 			dispatch(findAllSuccess(response.data.departments, parseInt(response.headers['x-total'])));
 		} catch (error) {
 			dispatch(findAllFailure());

@@ -4,7 +4,10 @@
     "type": "docker",
     "files": [
         "Dockerfile",
-        "nginx.conf",
+        "Caddyfile",
         "dist"
-    ]
+    ],
+    "env": {
+        "CADDY_BACKEND": "@tfk_backend_url"
+    }
 }
