@@ -34,7 +34,7 @@ export const searchByFullName = (q) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch(searchByFullNameRequest(q));
-			const response = await axios.get('/people', { params: { field: 'fullname', q, size: 25 } });
+			const response = await axios.get('/api/people', { params: { field: 'fullname', q, size: 25 } });
 			dispatch(searchByFullNameSuccess(response.data.people, parseInt(response.headers['x-total'])));
 		} catch (error) {
 			dispatch(searchByFullNameFailure());
