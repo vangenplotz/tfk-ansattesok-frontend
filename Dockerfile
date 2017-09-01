@@ -1,4 +1,6 @@
-FROM nginx:1.13-alpine
+FROM abiosoft/caddy
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY dist /usr/share/nginx/html
+ENV CADDY_BACKEND http://localhost
+
+COPY Caddyfile /etc/Caddyfile
+COPY dist /srv
