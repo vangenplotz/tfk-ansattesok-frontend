@@ -3,6 +3,8 @@
 
 # Telemark Fylkeskommune, Web
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
+
 ## Development
 
 ### Info
