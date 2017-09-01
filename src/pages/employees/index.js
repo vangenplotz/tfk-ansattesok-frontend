@@ -42,7 +42,7 @@ export default class Index extends React.Component {
         <Container>
             <Grid columns={2}>
                 <Grid.Row>
-                    <Grid.Column width={4}>
+                    <Grid.Column className="pull-left" width={3}>
                         <Menu size='large' pointing secondary vertical className="wrap--menu">
                             <Menu.Item>
                                 <Dropdown placeholder='Velg avdeling(er)' fluid multiple search selection
@@ -84,7 +84,7 @@ export default class Index extends React.Component {
                             </Menu.Item>
                         </Menu>
                     </Grid.Column>
-                    <Grid.Column width={12}>
+                    <Grid.Column className="no-padding-right" width={13}>
                         <SearchResult numberOfHits={this.props.numberOfHits}
                                       results={this.props.results.map(x => {
 																				const positions = x.positions.reduce((accumulator, currentItem) => {
@@ -112,12 +112,12 @@ export default class Index extends React.Component {
 																				{
 																					key: 'name',
 																					value: 'Navn',
-																					icon: 'user'
+																					icon: 'user outline'
 																				},
 																				{
 																					key: 'department',
 																					value: 'Avdeling',
-																					icon: 'briefcase'
+																					icon: 'circle outline'
 																				},
 																				{
 																					key: 'email',
