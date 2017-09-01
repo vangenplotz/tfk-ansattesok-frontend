@@ -14,6 +14,9 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
+    	componentDidMount: () => {
+				dispatch(employeeActions.searchByFullName(''));
+			},
     	onChange: (q) => {
     		dispatch(employeeActions.searchByFullName(q));
 			}

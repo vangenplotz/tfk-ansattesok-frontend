@@ -6,6 +6,10 @@ import { Link } from "react-router"
 
 export default class Index extends React.Component {
 
+  componentDidMount() {
+    this.props.componentDidMount();
+  }
+
 	render() {
 		return <div>
       <Debounce time={300} handler={"onSearchChange"}>
