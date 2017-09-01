@@ -3,6 +3,7 @@ import { Checkbox, Icon, Table, Container, Dropdown, Form, Grid, Image, Label, M
 import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
 import { Debounce } from "react-throttle"
 import { Link } from "react-router"
+import Navigation from "../../containers/navigation/navigation"
 
 export default class Index extends React.Component {
 
