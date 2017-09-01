@@ -2,7 +2,7 @@ import "./index.scss"
 import React from "react"
 import { Search, Container, Label, Menu, Grid, Image, Form, Checkbox, Dropdown } from "semantic-ui-react"
 import SearchResult from "../../components/search_result/search_result"
-import Logo from "../../../assets/images/Tfk_Logo_RGB_pos.png"
+import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
 
 const departmentOptions = [
     {
