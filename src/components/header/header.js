@@ -18,15 +18,7 @@ export default class Header extends React.Component {
                     />
                 </Grid.Column>
                 <Grid.Column width={12}>
-                    <Debounce time={300} handler={'onSearchChange'}>
-                        <Search className="searchbar--fluid"
-                                fluid
-                                loading={this.props.isLoading}
-                                showNoResults={false}
-                                onSearchChange={(e, data) => this.props.onChange(data.value)}
-                                placeholder="Søk etter ansatte / avdelinger"
-                        />
-                    </Debounce>
+                  {this.props.component}
                 </Grid.Column>
             </Grid.Row>
         </Grid>

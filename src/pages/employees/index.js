@@ -1,9 +1,11 @@
 import React from "react"
-import { Container, Grid } from "semantic-ui-react"
+import { Container, Grid, Search } from "semantic-ui-react"
 import SearchResult from "../../components/search_result/search_result"
 import { Link } from "react-router"
 import Navigation from "../../containers/navigation/navigation"
 import SearchFilter from "../../containers/search_filter/search_filter"
+import Header from "../../components/header/header"
+import { Debounce } from "react-throttle"
 
 export default class Index extends React.Component {
 
@@ -13,6 +15,15 @@ export default class Index extends React.Component {
 
 	render() {
 		return <div className="app-container">
+			<Header component={<Debounce time={300} handler={'onSearchChange'}>
+				<Search className="searchbar--fluid"
+								fluid
+								loading={this.props.isLoading}
+								showNoResults={false}
+								onSearchChange={(e, data) => this.props.onChange(data.value)}
+								placeholder="Søk etter ansatte"
+				/>
+			</Debounce>} />
 			<Navigation />
 			<Container>
 				<Grid columns={2}>

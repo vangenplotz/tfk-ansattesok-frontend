@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Card, Container, List } from 'semantic-ui-react'
 import Navigation from "../../containers/navigation/navigation"
+import Header from "../../components/header/header"
 
 export default class Show extends React.Component {
 
@@ -18,7 +19,7 @@ export default class Show extends React.Component {
 			<Card.Description>
 				<List>
 					<List.Item>
-						<List.Icon name="circle outline icon" />
+						<List.Icon name="circle outline" />
 						<List.Content>{position.departmentName}</List.Content>
 					</List.Item>
 					<List.Item>
@@ -36,6 +37,7 @@ export default class Show extends React.Component {
 
 	render() {
 		return <div>
+			<Header />
 			<Navigation />
 			<Container>
 				<Card>
@@ -48,7 +50,7 @@ export default class Show extends React.Component {
 						<Card.Description>
 							<List>
 								<List.Item>
-									<List.Icon name="mail outline icon" />
+									<List.Icon name="mail outline" />
 									<List.Content>
 										<a href={this.props.employee && `mailto:${this.props.employee.email}`}>{this.props.employee && this.props.employee.email.toLowerCase()}</a>
 									</List.Content>

@@ -1,5 +1,6 @@
 import axios from "axios"
 import * as entityConstants from "../constants/entities"
+import * as departmentUiConstants from "../constants/ui/departments"
 
 const findAllRequest = () => {
 	return {
@@ -30,5 +31,12 @@ export const findAll = (from = 0, size = 100) => {
 		} catch (error) {
 			dispatch(findAllFailure());
 		}
+	}
+};
+
+export const filterDepartments = (value) => {
+	return {
+		type: departmentUiConstants.UI_DEPARTMENTS_INDEX_ON_FILTER,
+		value
 	}
 };

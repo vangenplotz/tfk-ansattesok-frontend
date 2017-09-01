@@ -1,30 +1,17 @@
 import React from "react"
-import { Checkbox, Icon, Table, Container, Dropdown, Form, Grid, Image, Label, Menu, Search } from "semantic-ui-react"
-import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
+import { Container, Icon, Search, Table } from "semantic-ui-react"
 import { Debounce } from "react-throttle"
 import { Link } from "react-router"
 import Navigation from "../../containers/navigation/navigation"
+import Header from "../../components/header/header"
 
 export default class Index extends React.Component {
 
-    state = {
-        value: 'Alle'
-    };
-    // TODO: Do it dynamic yes yesh
-
-
-    componentDidMount() {
+	componentDidMount() {
 		this.props.componentDidMount();
 	}
 
-    handleItemClick(e, { name }) {
-        this.setState({ activeItem: name })
-    }
-
-    handleChange = (e, { value }) => this.setState({ value });
-
-
-    renderBody() {
+	renderBody() {
 		return this.props.departments
 				.map(department => <Table.Row key={department.id}>
 					<Table.Cell><Link to={`/departments/${department.id}`}>{department.name}</Link></Table.Cell>
@@ -34,9 +21,16 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-        const { activeItem } = this.state;
-
-        return <div className="app-container">
+		return <div className="app-container">
+			<Header component={<Debounce time={300} handler={'onSearchChange'}>
+				<Search className="searchbar--fluid"
+								fluid
+								loading={this.props.isLoading}
+								showNoResults={false}
+								onSearchChange={(e, data) => this.props.onFilterChange(data.value)}
+								placeholder="Søk etter avdelinger"
+				/>
+			</Debounce>} />
 			<Navigation />
 			<Container>
 				<Table basic="very">
