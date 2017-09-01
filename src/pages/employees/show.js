@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { List, Container, Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Container, List } from 'semantic-ui-react'
 import Navigation from "../../containers/navigation/navigation"
 
 export default class Show extends React.Component {
@@ -9,58 +9,70 @@ export default class Show extends React.Component {
 		this.props.componentDidMount();
 	}
 
+	getFullName() {
+		return `${this.props.employee.givenName} ${this.props.employee.familyName}`;
+	}
+
+	getPositions() {
+		return this.props.employee.positions.map((position, index) => <Card.Content key={index}>
+			<Card.Description>
+				<List>
+					<List.Item>
+						<List.Icon name="briefcase" />
+						<List.Content>{position.departmentName}</List.Content>
+					</List.Item>
+					<List.Item>
+						<List.Icon name="address card" />
+						<List.Content>{position.info}</List.Content>
+					</List.Item>
+					<List.Item>
+						<List.Icon name="star" />
+						<List.Content>{position.type}</List.Content>
+					</List.Item>
+				</List>
+			</Card.Description>
+		</Card.Content>)
+	}
+
 	render() {
 		return <div>
 			<Navigation />
 			<Container>
-			<Card>
-				<Card.Content>
-					<Card.Header>
-						Dynamisk Fullname
-					</Card.Header>
-					<Card.Meta>
-        <span className='date'>
-          Fagarbeider
-        </span>
-					</Card.Meta>
-					<Card.Description>
-						<List>
-							<List.Item>
-								<List.Icon name='users' />
-								<List.Content>Nome VGS</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Icon name='marker' />
-								<List.Content>Adresse</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Icon name='circle thin' />
-								<List.Content>
-									Fast ansatt
-								</List.Content>
-							</List.Item>
-						</List>
-					</Card.Description>
-				</Card.Content>
-				<Card.Content>
-					<List>
-						<List.Item>
-							<List.Icon name='at' />
-							<List.Content>
-								<a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
-							</List.Content>
-						</List.Item>
-						<List.Item>
-							<List.Icon name='phone' />
-							<List.Content>
-								<a href='tel:0004740000000'>400 00 000</a>
-							</List.Content>
-						</List.Item>
-					</List>
-				</Card.Content>
-			</Card>
+				<Card>
+					<Card.Content>
+						<Card.Header>
+							{this.props.employee && this.getFullName()}
+						</Card.Header>
+						<Card.Meta>
+						</Card.Meta>
+						<Card.Description>
+							<List>
+								<List.Item>
+									<List.Icon name="at" />
+									<List.Content>
+										<a href={this.props.employee && `mailto:${this.props.employee.email}`}>{this.props.employee && this.props.employee.email.toLowerCase()}</a>
+									</List.Content>
+								</List.Item>
+								<List.Item>
+									<List.Icon name="phone" />
+									<List.Content>
+										<a href={this.props.employee && `tel:${this.props.employee.workPhone}`}>{this.props.employee && this.props.employee.workPhone}</a>
+									</List.Content>
+								</List.Item>
+								<List.Item>
+									<List.Icon name="mobile" />
+									<List.Content>
+										<a href={this.props.employee && `tel:${this.props.employee.mobilePhone}`}>{this.props.employee && this.props.employee.mobilePhone}</a>
+									</List.Content>
+								</List.Item>
+							</List>
+						</Card.Description>
+					</Card.Content>
+
+					{this.props.employee && this.getPositions()}
+				</Card>
 			</Container>
-            {JSON.stringify(this.props.employee)}
+			{JSON.stringify(this.props.employee)}
 		</div>
 	}
 }
