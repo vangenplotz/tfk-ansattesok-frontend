@@ -26,7 +26,6 @@ export default class Index extends React.Component {
 
     renderBody() {
 		return this.props.departments
-				.filter(department => !!department.name)
 				.map(department => <Table.Row key={department.id}>
 					<Table.Cell><Link to={`/departments/${department.id}`}>{department.name}</Link></Table.Cell>
 					<Table.Cell><Icon name="mail outline" /> <a href="mailto:post@t-fk.no">post@t-fk.no</a></Table.Cell>

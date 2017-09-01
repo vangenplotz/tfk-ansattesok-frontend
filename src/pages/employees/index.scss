@@ -1,0 +1,46 @@
+@import "../../../assets/scss/variables";
+
+// Dirty overrides for now
+
+.ui.secondary.pointing.borderless.menu {
+  border-bottom: 2px solid rgba(34,36,38,.0);
+}
+
+.ui.large.vertical.menu.wrap--menu {
+  width: 100%;
+}
+
+.app-container {
+  margin-top: 3rem;
+}
+
+.wrap--nav {
+  background: $yellow;
+  margin: 2rem 0 2rem;
+}
+
+.searchbar--fluid {
+  .ui.input {
+    display: block;
+    input {
+      min-width: 100%;
+    }
+  }
+}
+
+#app {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 600px;
+}
+
+// From Farte
+
+
+.highlight--dark {
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 600px;
+}
