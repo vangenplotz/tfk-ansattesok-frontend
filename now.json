@@ -6,5 +6,8 @@
         "Dockerfile",
         "Caddyfile",
         "dist"
-    ]
+    ],
+    "env": {
+        "CADDY_BACKEND": "@tfk_backend_url"
+    }
 }
