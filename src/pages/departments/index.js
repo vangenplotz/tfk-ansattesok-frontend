@@ -39,43 +39,22 @@ export default class Index extends React.Component {
 
         return <div className="app-container">
 			<Container>
-				<Grid columns={2}
-					  verticalAlign="bottom"
-				>
-					<Grid.Row>
-						<Grid.Column width={4}>
-							<Image
-								src={Logo}
-								as='a'
-								href='/'
-							/>
-						</Grid.Column>
-						<Grid.Column width={12}>
-							<Debounce time={300} handler={'onSearchChange'}>
-								<Search className="searchbar--fluid"
-										fluid
-									// TODO: Do it dynamic yes yesh
-								/>
-							</Debounce>
-						</Grid.Column>
-					</Grid.Row>
-				</Grid>
+				<Table>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell colSpan="3">Avdelinger</Table.HeaderCell>
+						</Table.Row>
+						<Table.Row>
+							<Table.HeaderCell>Navn</Table.HeaderCell>
+							<Table.HeaderCell>E-post</Table.HeaderCell>
+							<Table.HeaderCell>Nettside</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+						{this.renderBody()}
+					</Table.Body>
+				</Table>
 			</Container>
-			<Table>
-				<Table.Header>
-					<Table.Row>
-						<Table.HeaderCell colSpan="3">Avdelinger</Table.HeaderCell>
-					</Table.Row>
-					<Table.Row>
-						<Table.HeaderCell>Navn</Table.HeaderCell>
-						<Table.HeaderCell>E-post</Table.HeaderCell>
-						<Table.HeaderCell>Nettside</Table.HeaderCell>
-					</Table.Row>
-				</Table.Header>
-				<Table.Body>
-					{this.renderBody()}
-				</Table.Body>
-			</Table>
 		</div>
 	}
 }
