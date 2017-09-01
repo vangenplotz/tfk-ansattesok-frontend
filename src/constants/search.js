@@ -1,3 +1,7 @@
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 export const SEARCH_FAILURE = 'SEARCH_FAILURE';
+
+export const SEARCH_CHANGE = 'SEARCH_CHANGE';
+export const SEARCH_PUSH = 'SEARCH_PUSH';
+export const SEARCH_REMOVE = 'SEARCH_REMOVE';

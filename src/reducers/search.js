@@ -2,6 +2,9 @@ import * as searchConstants from "../constants/search"
 
 const initialState = {
 	q: '',
+	departmentIds: [],
+	fullTime: false,
+	partTime: false,
 	isLoading: false,
 	results: [],
 	numberOfHits: 0
@@ -29,6 +32,10 @@ const searchReducer = (state, action) => {
 			return { ...state, isLoading: false, results: action.results, numberOfHits: action.numberOfHits };
 		case searchConstants.SEARCH_FAILURE:
 			return { ...state, isLoading: false, results: [], numberOfHits: 0 };
+		case searchConstants.SEARCH_CHANGE:
+			return { ...state, [action.key]: action.value };
+		case searchConstants.SEARCH_PUSH:
+			return { ...state, [action.key]: [...action.key, action.value] };
 		default:
 			return state;
 	}

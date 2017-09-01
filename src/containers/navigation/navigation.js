@@ -4,6 +4,8 @@ import { push } from "react-router-redux"
 
 const mapStateToProps = (state, props) => {
     return {
+    	employeeCount: state.employeeSearch.numberOfHits,
+			departmentCount: state.entities.departments.entities.length,
     	pathname: state.routing.locationBeforeTransitions.pathname
     }
 };
