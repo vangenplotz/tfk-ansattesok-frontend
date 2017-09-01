@@ -26,11 +26,8 @@ export default class SearchResult extends React.Component {
 	}
 
 	render() {
-		return <Table celled striped>
+		return <Table basic='very'>
 			<Table.Header>
-				<Table.Row>
-					<Table.HeaderCell colSpan={this.props.headerColumns.length}>Søkeresultat: {this.props.numberOfHits} treff</Table.HeaderCell>
-				</Table.Row>
 				<Table.Row>
 					{this.renderHeader()}
 				</Table.Row>
@@ -38,6 +35,11 @@ export default class SearchResult extends React.Component {
 			<Table.Body>
 				{this.renderResults()}
 			</Table.Body>
+			<Table.Footer>
+				<Table.Row>
+					<Table.HeaderCell colSpan={this.props.headerColumns.length}>Søkeresultat: {this.props.numberOfHits} treff</Table.HeaderCell>
+				</Table.Row>
+			</Table.Footer>
 		</Table>
 	}
 }
