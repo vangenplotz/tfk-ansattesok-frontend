@@ -38,8 +38,9 @@ export default class Index extends React.Component {
         const { activeItem } = this.state;
 
         return <div className="app-container">
+			<Navigation />
 			<Container>
-				<Table>
+				<Table basic="very">
 					<Table.Header>
 						<Table.Row>
 							<Table.HeaderCell colSpan="3">Avdelinger</Table.HeaderCell>
