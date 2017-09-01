@@ -1,8 +1,4 @@
-FROM alpine:3.6
-RUN apk update && apk upgrade && apk add nodejs yarn && rm -rf /var/cache/apk/*
-COPY . /src
-WORKDIR /src
-RUN yarn install
+FROM nginx:1.13-alpine
 
-EXPOSE 8080
-CMD ["yarn", "start:dev"]
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY dist /usr/share/nginx/html

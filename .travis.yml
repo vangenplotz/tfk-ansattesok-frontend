@@ -1,11 +1,18 @@
 language: node_js
+dist: trusty
+sudo: true
 node_js:
   - 8
+cache:
+  yarn: true
 env:
   global:
-    secure: eTCJSZiiK08+NtNx0uiQaop8uGu3K4L9XGmf30+IRru6PIGUM61GI6Kx0b2amwuE6bcVXZmftgLvRG8w457Fh6eXHLpIW9IW/oWAYc6bw90XU0wLFgHstqZ+zh5c5HWkEkc6G+VB/eA17A4l1/oh6WN2IbOR5taZ47KhJYntENjLU7jJYNSwr6QZGQrVAKXHYeYAefEXaLHrVi1BSL9ymCSxuQhmWDCkyG7mtuACHPZJNI5seQ5U5xn9VhYxdMHI7eYoHWGXQOnSgTNkg0zTijjKibuQpOCcRdBq9+QM59eEw8IyS41GLDnMxF1spQHfPUFFlXdfS+FJsfSIhZ04R01aYMOWBEt0FKqCm5zyzstI40D78b9hVFj+rNLgA6I/N8G+72/N4cTJgMp9nqsfA5nzDz4XiIH5myx4LmoYgvigqS5uZWnGx8k/d2zGHxYGwsBP1bS4Qz3vD+k+ysmhlYrFc/eq7LwMfAlyBKzCty1OCWstM0LXPgxefHrXPkBaRDij3vIEogk46+62yvnubb3AUN1Fx86sxVcNfXV+GT0yiX9utXwEjAP3wIhN8PA3bG82iU/eBO0TOn6TKpBzDVxlW9d0BBHme0Aj5i8rynl+jD76Na5qwI0A24wvnLvO/2dN+dYK6vtOS6JkxIeeVZN+ec2xT+/gcOEj1G5q6+Y=
-
+    - secure: eTCJSZiiK08+NtNx0uiQaop8uGu3K4L9XGmf30+IRru6PIGUM61GI6Kx0b2amwuE6bcVXZmftgLvRG8w457Fh6eXHLpIW9IW/oWAYc6bw90XU0wLFgHstqZ+zh5c5HWkEkc6G+VB/eA17A4l1/oh6WN2IbOR5taZ47KhJYntENjLU7jJYNSwr6QZGQrVAKXHYeYAefEXaLHrVi1BSL9ymCSxuQhmWDCkyG7mtuACHPZJNI5seQ5U5xn9VhYxdMHI7eYoHWGXQOnSgTNkg0zTijjKibuQpOCcRdBq9+QM59eEw8IyS41GLDnMxF1spQHfPUFFlXdfS+FJsfSIhZ04R01aYMOWBEt0FKqCm5zyzstI40D78b9hVFj+rNLgA6I/N8G+72/N4cTJgMp9nqsfA5nzDz4XiIH5myx4LmoYgvigqS5uZWnGx8k/d2zGHxYGwsBP1bS4Qz3vD+k+ysmhlYrFc/eq7LwMfAlyBKzCty1OCWstM0LXPgxefHrXPkBaRDij3vIEogk46+62yvnubb3AUN1Fx86sxVcNfXV+GT0yiX9utXwEjAP3wIhN8PA3bG82iU/eBO0TOn6TKpBzDVxlW9d0BBHme0Aj5i8rynl+jD76Na5qwI0A24wvnLvO/2dN+dYK6vtOS6JkxIeeVZN+ec2xT+/gcOEj1G5q6+Y=
+install:
+  - yarn add global now
+  - yarn install
 script:
   - node -r babel-register node_modules/.bin/webpack -p --config webpack.config.production.js
-after_script:
-  - node_modules/.bin/now-travis
+after_success:
+  - now --token=${NOW_TOKEN} --no-clipboard
+  - now --token=${NOW_TOKEN} alias

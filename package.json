@@ -41,7 +41,6 @@
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.0",
     "node-sass": "^4.5.3",
-    "now-travis": "^1.0.1",
     "path": "^0.12.7",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
