@@ -1,15 +1,30 @@
 import React from "react"
-import { Container, Grid, Icon, Table } from "semantic-ui-react"
+import { Checkbox, Icon, Table, Container, Dropdown, Form, Grid, Image, Label, Menu, Search } from "semantic-ui-react"
+import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
+import { Debounce } from "react-throttle"
 import { Link } from "react-router"
 import Navigation from "../../containers/navigation/navigation"
 
 export default class Index extends React.Component {
 
-	componentDidMount() {
+    state = {
+        value: 'Alle'
+    };
+    // TODO: Do it dynamic yes yesh
+
+
+    componentDidMount() {
 		this.props.componentDidMount();
 	}
 
-	renderBody() {
+    handleItemClick(e, { name }) {
+        this.setState({ activeItem: name })
+    }
+
+    handleChange = (e, { value }) => this.setState({ value });
+
+
+    renderBody() {
 		return this.props.departments
 				.map(department => <Table.Row key={department.id}>
 					<Table.Cell><Link to={`/departments/${department.id}`}>{department.name}</Link></Table.Cell>
@@ -19,30 +34,26 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		return <div className="app-container">
+        const { activeItem } = this.state;
+
+        return <div className="app-container">
 			<Navigation />
 			<Container>
-				<Grid columns={1}>
-					<Grid.Row>
-						<Grid.Column width={16}>
-							<Table>
-								<Table.Header>
-									<Table.Row>
-										<Table.HeaderCell colSpan="3">Avdelinger</Table.HeaderCell>
-									</Table.Row>
-									<Table.Row>
-										<Table.HeaderCell>Navn</Table.HeaderCell>
-										<Table.HeaderCell>E-post</Table.HeaderCell>
-										<Table.HeaderCell>Nettside</Table.HeaderCell>
-									</Table.Row>
-								</Table.Header>
-								<Table.Body>
-									{this.renderBody()}
-								</Table.Body>
-							</Table>
-						</Grid.Column>
-					</Grid.Row>
-				</Grid>
+				<Table basic="very">
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell colSpan="3">Avdelinger</Table.HeaderCell>
+						</Table.Row>
+						<Table.Row>
+							<Table.HeaderCell>Navn</Table.HeaderCell>
+							<Table.HeaderCell>E-post</Table.HeaderCell>
+							<Table.HeaderCell>Nettside</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+						{this.renderBody()}
+					</Table.Body>
+				</Table>
 			</Container>
 		</div>
 	}

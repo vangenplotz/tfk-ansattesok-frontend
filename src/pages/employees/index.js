@@ -1,4 +1,3 @@
-import "./index.scss"
 import React from "react"
 import { Checkbox, Container, Dropdown, Form, Grid, Image, Label, Menu, Search } from "semantic-ui-react"
 import SearchResult from "../../components/search_result/search_result"
@@ -27,8 +26,10 @@ export default class Index extends React.Component {
 	state = {
 		value: 'Alle typer'
 	};
+    // TODO: Do it dynamic yes yesh
 
-	componentDidMount() {
+
+    componentDidMount() {
 		this.props.componentDidMount();
 	}
 
