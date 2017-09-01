@@ -18,7 +18,7 @@ export default class Show extends React.Component {
 			<Card.Description>
 				<List>
 					<List.Item>
-						<List.Icon name="briefcase" />
+						<List.Icon name="circle outline icon" />
 						<List.Content>{position.departmentName}</List.Content>
 					</List.Item>
 					<List.Item>
@@ -48,7 +48,7 @@ export default class Show extends React.Component {
 						<Card.Description>
 							<List>
 								<List.Item>
-									<List.Icon name="at" />
+									<List.Icon name="mail outline icon" />
 									<List.Content>
 										<a href={this.props.employee && `mailto:${this.props.employee.email}`}>{this.props.employee && this.props.employee.email.toLowerCase()}</a>
 									</List.Content>
@@ -72,7 +72,6 @@ export default class Show extends React.Component {
 					{this.props.employee && this.getPositions()}
 				</Card>
 			</Container>
-			{JSON.stringify(this.props.employee)}
 		</div>
 	}
 }
