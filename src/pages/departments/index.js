@@ -1,14 +1,29 @@
 import React from "react"
-import { Table, Icon } from "semantic-ui-react"
+import { Checkbox, Icon, Table, Container, Dropdown, Form, Grid, Image, Label, Menu, Search } from "semantic-ui-react"
+import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
+import { Debounce } from "react-throttle"
 import { Link } from "react-router"
 
 export default class Index extends React.Component {
 
-	componentDidMount() {
+    state = {
+        value: 'Alle'
+    };
+    // TODO: Do it dynamic yes yesh
+
+
+    componentDidMount() {
 		this.props.componentDidMount();
 	}
 
-	renderBody() {
+    handleItemClick(e, { name }) {
+        this.setState({ activeItem: name })
+    }
+
+    handleChange = (e, { value }) => this.setState({ value });
+
+
+    renderBody() {
 		return this.props.departments
 				.filter(department => !!department.name)
 				.map(department => <Table.Row key={department.id}>
@@ -19,7 +34,32 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		return <div>
+        const { activeItem } = this.state;
+
+        return <div className="app-container">
+			<Container>
+				<Grid columns={2}
+					  verticalAlign="bottom"
+				>
+					<Grid.Row>
+						<Grid.Column width={4}>
+							<Image
+								src={Logo}
+								as='a'
+								href='/'
+							/>
+						</Grid.Column>
+						<Grid.Column width={12}>
+							<Debounce time={300} handler={'onSearchChange'}>
+								<Search className="searchbar--fluid"
+										fluid
+									// TODO: Do it dynamic yes yesh
+								/>
+							</Debounce>
+						</Grid.Column>
+					</Grid.Row>
+				</Grid>
+			</Container>
 			<Table>
 				<Table.Header>
 					<Table.Row>

@@ -1,0 +1,203 @@
+// Farger
+$black:                 #333;
+$key:                   #000;
+$white:                 #fff;
+$turkis-mett:           #01BDA1;
+$turkis:                #6AC4AE;
+$l-turkis:              #99E0CF;
+$yellow:                #FFD520;
+
+$gray:                  #DBDCD7;
+$l-gray:                #f3f4f5;
+$m-gray:                #ededed;
+$light-gray:            $l-gray;
+$gray-btn-border:       lighten($gray, 10%);
+$light-gray-border:     lighten($gray, 30%);
+$brandcolor:            $yellow;
+$gray-link:             $l-gray;
+
+
+// Typografiske variabler
+$open-sans:             'Open Sans', sans-serif;
+$telefon:               'Telefon', sans-serif;
+
+
+// Diverse variabler
+$box-shadow:            1px 0px 2px 0px rgba(0,0,0,0.25);
+$radius:                5px;
+
+
+// Breakpoints
+$medium:        500px;
+$large:         800px;
+
+$breakpoint-medium: $medium;
+$breakpoint-large: $large;
+
+
+// Overrides til demo
+
+.ui.secondary.pointing.borderless.menu {
+  border-bottom: 2px solid rgba(34,36,38,.0);
+}
+
+.ui.large.vertical.menu.wrap--menu {
+  width: 100%;
+}
+
+.app-container {
+  margin-top: 3rem;
+}
+
+.wrap--nav {
+  background: $yellow;
+  margin: 2rem 0rem 2rem;
+}
+
+.searchbar--fluid {
+  .ui.input {
+    display: block;
+    input {
+      min-width: 100%;
+    }
+  }
+}
+
+
+
+#app {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 600px;
+}
+
+
+
+//Footer
+
+.highlight--dark {
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 600px;
+}
+
+footer {
+  a {
+    text-decoration: none;
+    &:hover {
+      border-bottom:1px solid white;
+    }
+  }
+
+  .side-menu__item a {
+    padding: 0.25em 0em;
+  }
+
+  .row {
+    overflow: auto;
+    padding: 1em;
+    > p {
+      font-weight: 900;
+    }
+  }
+
+  ul {
+    margin-bottom: .325em;
+    li {
+      padding: .25em 0 0 1.75em;
+    }
+
+    li:first-child {
+      padding-top:.025em;
+    }
+  }
+
+
+  h3 {
+    font-weight: 600;
+    margin-bottom: .25em;
+    margin-top: .75em;
+  }
+
+
+  .column-4 ul {
+    font-family: "Open sans", sans-serif;
+    font-size: .875em;
+    font-weight: 400;
+  }
+
+
+  .page-footer ul {
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+
+  .page-footer .side-menu {
+    margin-top: 1.375em;
+    margin-bottom: initial;
+    border: none;
+  }
+
+
+  .highlight--dark .side-menu__item a:after {
+    background-image: none;
+  }
+
+
+  .highlight--dark .side-menu__item {
+    border-bottom-color: transparent;
+  }
+
+
+  .page-footer__box {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: none;
+    padding: 0;
+  }
+
+}
+
+
+
+
+footer {
+  padding-top: 3rem;
+  display: flex;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  * > *, * {
+    color: white;
+    list-style: none;
+    font-family: $open-sans;
+  }
+
+
+  h3 {
+    font-size: 1.125rem;
+    font-family: $telefon;
+  }
+
+  .column-4 {
+    flex-basis: 25%;
+
+    &:last-child {
+      margin-bottom:1em;
+    }
+  }
+
+  .column-custom {
+    margin-top: -0.25em;
+  }
+
+}
+
