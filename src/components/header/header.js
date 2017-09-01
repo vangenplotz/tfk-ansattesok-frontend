@@ -23,7 +23,7 @@ export default class Header extends React.Component {
                                 fluid
                                 loading={this.props.isLoading}
                                 showNoResults={false}
-                                onSearchChange={(e, data) => this.props.onChange(data.value)}
+                                onSearchChange={(e, data) => this.props.onChange(data.value)}                       value="Søk etter ansatte / avdelinger"
                         />
                     </Debounce>
                 </Grid.Column>
