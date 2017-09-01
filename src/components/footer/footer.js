@@ -1,6 +1,6 @@
 import React from "react"
 
-export default className Footer extends React.Component {
+export default class Footer extends React.Component {
     render() {
         return <footer id="footer-menu" role="contentinfo" className="constrained-content">
 

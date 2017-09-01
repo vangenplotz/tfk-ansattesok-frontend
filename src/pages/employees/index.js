@@ -25,6 +25,10 @@ export default class Index extends React.Component {
         value: 'Alle typer'
     };
 
+    componentDidMount() {
+        this.props.componentDidMount();
+    }
+
     handleItemClick(e, { name }) {
         this.setState({ activeItem: name })
     }
