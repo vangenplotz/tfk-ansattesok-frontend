@@ -1,0 +1,13 @@
+0.0.0.0:80 {
+    root /srv
+    rewrite {
+        if {path} not_match ^/api
+        to {path} {path}/ /
+    }
+    proxy /api {$CADDY_BACKEND} {
+        without /api
+        header_downstream -cache-control
+        header_downstream -Server
+    }
+}
+
