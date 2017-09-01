@@ -1,5 +1,6 @@
 0.0.0.0:80 {
     root /srv
+    logs stdout {common}
     rewrite {
         if {path} not_match ^/api
         to {path} {path}/ /
