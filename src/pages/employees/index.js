@@ -5,6 +5,7 @@ import SearchResult from "../../components/search_result/search_result"
 import Logo from "../../../assets/images/tfk_logo_rgb_pos.png"
 import { Debounce } from "react-throttle"
 import { Link } from "react-router"
+import Navigation from "../../containers/navigation/navigation"
 
 const departmentOptions = [
 	{
@@ -31,64 +32,12 @@ export default class Index extends React.Component {
 		this.props.componentDidMount();
 	}
 
-	handleItemClick(e, { name }) {
-		this.setState({ activeItem: name })
-	}
-
-	handleChange = (e, { value }) => this.setState({ value });
+	// handleChange = (e, { value }) => this.setState({ value });
 
 	render() {
 		const { activeItem } = this.state;
-
 		return <div className="app-container">
-
-        <Container>
-            <Grid columns={2}
-                  verticalAlign="bottom"
-            >
-                <Grid.Row>
-                    <Grid.Column width={4}>
-                        <Image
-                            src={Logo}
-                            as='a'
-                            href='/'
-                        />
-                    </Grid.Column>
-                    <Grid.Column width={12}>
-                        <Debounce time={300} handler={'onSearchChange'}>
-                            <Search className="searchbar--fluid"
-                                    fluid
-                                    loading={this.props.isLoading}
-                                    showNoResults={false}
-                                    onSearchChange={(e, data) => this.props.onChange(data.value)}
-                            />
-                        </Debounce>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
-        </Container>
-
-        <div className="wrap--nav">
-            <Container>
-                <Menu borderless pointing compact secondary>
-                    <Menu.Item
-                        name='Ansattsøk'
-                        active={true}
-                        onClick={this.handleItemClick}>
-                        Ansattsøk
-                        <Label color='black'>1337</Label>
-                    </Menu.Item>
-                    <Menu.Item
-                        name='Avdelinger'
-                        active={activeItem === 'Avdelinger'}
-                        onClick={this.handleItemClick}>
-                        Avdelinger
-                        <Label color='black'>51</Label>
-                    </Menu.Item>
-                </Menu>
-            </Container>
-        </div>
-
+        <Navigation />
         <Container>
             <Grid columns={2}>
                 <Grid.Row>
@@ -190,7 +139,6 @@ export default class Index extends React.Component {
                 </Grid.Row>
             </Grid>
         </Container>
-
 
     </div>
 	}

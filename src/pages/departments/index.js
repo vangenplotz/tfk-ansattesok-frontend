@@ -1,6 +1,7 @@
 import React from "react"
 import { Table, Icon } from "semantic-ui-react"
 import { Link } from "react-router"
+import Navigation from "../../containers/navigation/navigation"
 
 export default class Index extends React.Component {
 
@@ -19,7 +20,8 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		return <div>
+		return <div className="app-container">
+			<Navigation />
 			<Table>
 				<Table.Header>
 					<Table.Row>

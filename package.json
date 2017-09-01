@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist/ && node -r babel-register ./node_modules/.bin/webpack -p --config webpack.config.production.js",
-    "start:dev": "node -r babel-register ./node_modules/.bin/webpack-dev-server --watch --hot --inline --content-base public/ --history-api-fallback --host 0.0.0.0"
+    "start:dev": "node -r babel-register ./node_modules/.bin/webpack-dev-server --watch --hot --colors --inline --content-base public/ --history-api-fallback --host 0.0.0.0"
   },
   "dependencies": {
     "axios": "^0.16.2",
