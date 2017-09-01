@@ -21,7 +21,7 @@ export default class Index extends React.Component {
                               id: x.id,
                               name: `${x.givenName} ${x.familyName}`,
                               department: [...new Set([...x.positions.map(p => p.departmentName)])].join(', '),
-                              email: x.email,
+                              email: x.email.toLowerCase(),
                               workPhone: x.workPhone,
                               mobilePhone: x.mobilePhone
                             }
