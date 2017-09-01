@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Container, Card, Icon, Image } from 'semantic-ui-react'
+import { List, Container, Card, Icon, Image } from 'semantic-ui-react'
 import Navigation from "../../containers/navigation/navigation"
 
 export default class Show extends React.Component {
@@ -16,26 +16,51 @@ export default class Show extends React.Component {
 			<Card>
 				<Card.Content>
 					<Card.Header>
-						Matthew
+						Dynamisk Fullname
 					</Card.Header>
 					<Card.Meta>
         <span className='date'>
-          Joined in 2015
+          Fagarbeider
         </span>
 					</Card.Meta>
 					<Card.Description>
-						Matthew is a musician living in Nashville.
+						<List>
+							<List.Item>
+								<List.Icon name='users' />
+								<List.Content>Nome VGS</List.Content>
+							</List.Item>
+							<List.Item>
+								<List.Icon name='marker' />
+								<List.Content>Adresse</List.Content>
+							</List.Item>
+							<List.Item>
+								<List.Icon name='circle thin' />
+								<List.Content>
+									Fast ansatt
+								</List.Content>
+							</List.Item>
+						</List>
 					</Card.Description>
 				</Card.Content>
-				<Card.Content extra>
-					<a>
-						<Icon name='user' />
-						22 Friends
-					</a>
+				<Card.Content>
+					<List>
+						<List.Item>
+							<List.Icon name='at' />
+							<List.Content>
+								<a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
+							</List.Content>
+						</List.Item>
+						<List.Item>
+							<List.Icon name='phone' />
+							<List.Content>
+								<a href='tel:0004740000000'>400 00 000</a>
+							</List.Content>
+						</List.Item>
+					</List>
 				</Card.Content>
 			</Card>
-			{JSON.stringify(this.props.employee)}
 			</Container>
+            {JSON.stringify(this.props.employee)}
 		</div>
 	}
 }
