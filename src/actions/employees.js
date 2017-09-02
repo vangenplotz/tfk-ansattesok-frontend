@@ -35,8 +35,9 @@ const searchByFullNameFailure = () => {
 export const searchByFullName = (q) => {
 	return async (dispatch, getState) => {
 		try {
+			const { departmentIds, partTime, fullTime } = getState().employeeSearch;
 			dispatch(searchByFullNameRequest(q));
-			const response = await axios.get('/api/people', { params: { field: 'fullname', q, size: 25 } });
+			const response = await axios.get('/api/people', { params: { q, size: 25, partTime, fullTime, departmentIds: departmentIds.join(',') } });
 			dispatch(searchByFullNameSuccess(response.data.people, parseInt(response.headers['x-total'])));
 		} catch (error) {
 			dispatch(searchByFullNameFailure());
