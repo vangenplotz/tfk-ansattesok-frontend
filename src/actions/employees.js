@@ -1,6 +1,7 @@
 import axios from "axios"
 import * as searchConstants from "../constants/search"
 import * as entityConstants from "../constants/entities"
+import * as searchActions from "../actions/search"
 import { schema, normalize } from "normalizr"
 
 const searchByFullNameRequest = (q) => {
@@ -32,13 +33,14 @@ const searchByFullNameFailure = () => {
 	}
 };
 
-export const searchByFullName = (q) => {
+export const searchByFullName = (q, page = 0) => {
 	return async (dispatch, getState) => {
 		try {
 			const { departmentIds, partTime, fullTime } = getState().employeeSearch;
 			dispatch(searchByFullNameRequest(q));
-			const response = await axios.get('/api/people', { params: { q, size: 25, partTime, fullTime, departmentIds: departmentIds.join(',') } });
+			const response = await axios.get('/api/people', { params: { q, page: page * 25, size: 25, partTime, fullTime, departmentIds: departmentIds.join(',') } });
 			dispatch(searchByFullNameSuccess(response.data.people, parseInt(response.headers['x-total'])));
+			dispatch(searchActions.onChange('page', page + 1));
 		} catch (error) {
 			dispatch(searchByFullNameFailure());
 		}

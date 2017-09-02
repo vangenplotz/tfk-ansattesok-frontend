@@ -5,7 +5,7 @@ import * as departmentActions from "../../actions/departments"
 
 
 const mapStateToProps = (state, props) => {
-	const { results, numberOfHits, isLoading } = state.employeeSearch;
+	const { results, numberOfHits, isLoading, page } = state.employeeSearch;
     return {
 			departments: state.entities.departments.entities.map(department => {
     		return {
@@ -15,7 +15,8 @@ const mapStateToProps = (state, props) => {
 			}}),
     	results,
 			numberOfHits,
-			isLoading: isLoading
+			isLoading: isLoading,
+			page
     }
 };
 
@@ -27,6 +28,11 @@ const mapDispatchToProps = (dispatch, props) => {
 			},
     	onChange: (q) => {
     		dispatch(employeeActions.searchByFullName(q));
+			},
+			onPaginationClick: (currentPage) => {
+    		dispatch((dispatch, getState) => {
+					dispatch(employeeActions.searchByFullName(getState().employeeSearch.q, currentPage - 1));
+				});
 			}
     }
 };

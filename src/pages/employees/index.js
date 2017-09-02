@@ -6,6 +6,7 @@ import Navigation from "../../containers/navigation/navigation"
 import SearchFilter from "../../containers/search_filter/search_filter"
 import Header from "../../components/header/header"
 import { Debounce } from "react-throttle"
+import Pagination from "../../components/pagination/pagination"
 
 export default class Index extends React.Component {
 
@@ -83,6 +84,7 @@ export default class Index extends React.Component {
 															}
 														]}
 							/>
+							<Pagination currentPage={this.props.page} pageCount={Math.ceil(this.props.numberOfHits / 25) } onChange={(page) => this.props.onPaginationClick(page)} />
 						</Grid.Column>
 					</Grid.Row>
 				</Grid>

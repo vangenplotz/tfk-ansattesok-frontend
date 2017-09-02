@@ -7,7 +7,8 @@ const initialState = {
 	partTime: false,
 	isLoading: false,
 	results: [],
-	numberOfHits: 0
+	numberOfHits: 0,
+	page: 1
 };
 
 export const createSearchReducer = (searchField) => {
