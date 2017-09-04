@@ -2,6 +2,8 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
 # Telemark Fylkeskommune, Web
+###### Relaterte prosjekter
+[https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
@@ -19,9 +21,9 @@ Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med kor
 
 ## Teknologivalg
 
-* React og Redux som state management-bibliotek.
-* Webpack som bundler.
-* Semantic UI for frontend
+* [ReactJS](https://facebook.github.io/react/) med [Redux](http://redux.js.org/) som state management-bibliotek.
+* [Webpack](https://webpack.js.org/) som bundler.
+* [Semantic UI](https://react.semantic-ui.com) for frontend
 
 * Hele løsningen er skrevet i ES6-syntaks med elementer av ES7 (object spread, async/await)
 
@@ -32,19 +34,21 @@ Løsningen kjører på `now` og krever lite tilsyn.
 Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
 
 
-## Development
+## Lokal utvikling
 
-### Info
-Unless stated otherwise, all terminal commands are expected to be executed from the project root.
+### Informasjon
+Med mindre annet er spesifisert forventes det at alle terminal-kommandoer kjøres fra roten av prosjektet.
 
-### Prerequisites
-You must have Docker and Docker-Compose installed.
+### Forutsetninger
+For å kunne utvikle løsningen forventes det at man har [Docker](https://docker.com) og [Docker Compose](https://docs.docker.com/compose/) installert.
 
-### Installation
-Run `$ docker-compose -p telemark build` in your terminal to build the image(s).
+Det forventes at denne løsningen kommuniserer med følgende backend løsning: [https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend).
 
-**Note!** If you change dependencies in `package.json` you will need to rebuild the container image(s).
+### Installasjon
+Kjør `$ docker-compose -p telemark build` i terminalen for å bygge image(s).
 
-### Running the application
+**MERK!** Dersom du endrer dependencies i `package.json` må du rebuilde container image(s).
 
-Run `$ docker-compose -p telemark up` in your terminal to start the application.
+### Starte applikasjonen
+
+Kjør `$ docker-compose -p telemark up` i terminalen for å starte applikasjonen.
