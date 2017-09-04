@@ -42,6 +42,14 @@ $breakpoint-large: $large;
 
 // Overrides til demo
 
+.pagination {
+  width: 100%;
+  > * {
+    white-space: pre;
+  }
+}
+
+
 .ui.secondary.pointing.borderless.menu {
   border-bottom: 2px solid rgba(34,36,38,.0);
 }

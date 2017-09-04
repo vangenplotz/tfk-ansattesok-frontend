@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "semantic-ui-react"
+import { Button, Menu } from "semantic-ui-react"
 import PropTypes from "prop-types"
 
 export default class Pagination extends React.Component {
@@ -49,13 +49,29 @@ export default class Pagination extends React.Component {
 		}
 
     render() {
-        return <div>
+        return <Menu fluid widths={3} text pagination>
+			<Menu.Menu position='left'>
+				<Menu.Item>
 					<Button icon="angle double left" disabled={this.isPreviousDisabled()} onClick={this.onClickFirst} />
+				</Menu.Item>
+				<Menu.Item>
 					<Button icon="angle left" disabled={this.isPreviousDisabled()} onClick={this.onClickPrevious} />
+				</Menu.Item>
+			</Menu.Menu>
+			<Menu.Menu>
+				<Menu.Item inactive>
 					<div>Side {parseInt(this.props.currentPage)} av {parseInt(this.props.pageCount)}</div>
-					<Button icon="angle right" disabled={this.isNextDisabled()} onClick={this.onClickNext} />
-					<Button icon="angle double right" disabled={this.isNextDisabled()} onClick={this.onClickLast} />
-				</div>
+				</Menu.Item>
+			</Menu.Menu>
+					<Menu.Menu position='right'>
+						<Menu.Item>
+							<Button icon="angle right" disabled={this.isNextDisabled()} onClick={this.onClickNext} />
+						</Menu.Item>
+						<Menu.Item position='right'>
+							<Button icon="angle double right" disabled={this.isNextDisabled()} onClick={this.onClickLast} />
+						</Menu.Item>
+					</Menu.Menu>
+				</Menu>
     }
 }
 
