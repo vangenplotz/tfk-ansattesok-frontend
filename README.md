@@ -5,7 +5,6 @@
 ###### Relaterte prosjekter
 [https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
 ## Oppgave-forståelse/løsning
 Vi har valgt å levere frontend, backend og drift.
@@ -32,9 +31,7 @@ Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med kor
 ## Drift
 
 * Løsningen kjører på [now.sh](https://now.sh), som automatisk tar hånd om reverse proxy og SSL.
-
 * Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
-
 * Deployment gjøres automatisk av [Travis](https://travis-ci.org)
 
 
