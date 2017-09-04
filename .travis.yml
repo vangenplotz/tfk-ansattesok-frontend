@@ -14,5 +14,5 @@ install:
 script:
 - node -r babel-register node_modules/.bin/webpack -p --config webpack.config.production.js
 after_success:
-- now --token=${NOW_TOKEN} --no-clipboard
-- now --token=${NOW_TOKEN} alias
+- now -t "${NOW_TOKEN}" -C
+- now -t "${NOW_TOKEN}" alias
