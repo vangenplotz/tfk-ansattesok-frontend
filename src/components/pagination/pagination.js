@@ -59,7 +59,7 @@ export default class Pagination extends React.Component {
 				</Menu.Item>
 			</Menu.Menu>
 			<Menu.Menu>
-				<Menu.Item inactive>
+				<Menu.Item>
 					<div>Side {parseInt(this.props.currentPage)} av {parseInt(this.props.pageCount)}</div>
 				</Menu.Item>
 			</Menu.Menu>
