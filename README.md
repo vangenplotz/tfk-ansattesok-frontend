@@ -7,16 +7,14 @@
 
 
 ## Oppgave-forståelse/løsning
-Vi har valgt å levere frontend, backend og drift.
-
-Frontend er forsøkt utviklet i samme uttrykk som hjemmesiden til Telemark fylkeskommune, for å gi en helhet.
-
-Både frontend og backend kjører på [Now.sh](https://now.sh). 
-
-Data-lagring og søk foregår i `ElasticSearch` for å kunne utnytte muligheter som fasettering, paginering og bedre søk. 
-
-Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med korrekte data.
-
+* Vi har valgt å levere frontend, backend og drift.
+* Frontend er forsøkt utviklet i samme uttrykk som hjemmesiden til Telemark fylkeskommune, for å gi en helhet.
+* Både frontend og backend kjører på [Now.sh](https://now.sh). 
+* Data-lagring og søk foregår i `ElasticSearch` for å kunne utnytte muligheter som fasettering, paginering og bedre søk. 
+* Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med korrekte data.
+* Frontend kjører på https://tfk-ansattesok-frontend.vpdev.no/employees
+* Backend kjører på https://tfk-ansattesok-backend.vpdev.no
+* Routing på backend følger RESTful-konvensjoner, f.eks. `/people/:id`.
 
 ## Teknologivalg
 
