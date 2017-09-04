@@ -30,7 +30,7 @@
 
 * Løsningen kjører på [now.sh](https://now.sh), som automatisk tar hånd om reverse proxy og SSL.
 * Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
-* Deployment gjøres automatisk av [Travis](https://travis-ci.org)
+* Deployment gjøres ved hjelp av `now`
 
 
 

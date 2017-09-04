@@ -5,14 +5,8 @@ node_js:
 - 8
 cache:
   yarn: true
-env:
-  global:
-  - secure: ALf4zmvir7alEbmoqwPeQLQ+RZPDgA8d59Z0SCVlvjY5EpLvf4Uhwxy9LdZDsIlCn21GZHVWqoTloO9vgSYEX6mo7VMY3uEfIhbtSe2xaua1IIMkofLaLpneM8n9eYUqGQGgjcrVm0zBVYbb+yQckrsrCALwlTwl76mqMI5go9GXRWQzdZ9OfXMnyUNe23B51OTt/hM2swTJ8uA5eW3sWiGIzQRSHOfBbYp7YYNJpJfNUIttRzCdQjPcmh6NYzTVn5AyJ/M5+kIKBpCdU+z1dWidZqNuEsOLE8JdpX8k2AUK7YVFhKKu97E5VQ3tb0JlEgjMDyJ7HgBKkg/x3pM9AKFsISec5cLGgDQwVsTJ56zI3WUDsS1xmtxDxAWmE4mNEJnV+bAVfCh9g7rqKC+rDa09mHswbsj04z2t6kCT1QGNzDStW/jDbPlQiS2w/NB553g+fTHkhBi9AbDb3CjUlVyspChluLHcdQSv91roHOf0SPKIRzs3O6Wb6ZtF71IIPbIaikjHzwFx9pSa8+SJOeTenREuZ+6RMPQDjHMmEBFkDJc4Q7O9BPE8TOCCwNpH1MtHLWuSyORA1j4dDITHcHXYQeBot2Yu6UoFJwqWjUxPDvoIeUTUG7kOjwRxmd2LQ61V4gKiN6NuiB1dw+YG7Nk6CuKh1B+N0rmpIBkDtkg=
 install:
 - yarn add global now
 - yarn install
 script:
 - node -r babel-register node_modules/.bin/webpack -p --config webpack.config.production.js
-after_success:
-- now -t "${NOW_TOKEN}" -C
-- now -t "${NOW_TOKEN}" alias
