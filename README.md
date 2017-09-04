@@ -5,6 +5,33 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
+## Oppgave-forståelse/løsning
+Vi har valgt å levere frontend, backend og drift.
+
+Frontend er forsøkt utviklet i samme uttrykk som hjemmesiden til Telemark fylkeskommune, for å gi en helhet.
+
+Både frontend og backend kjører på [Now.sh](https://now.sh). 
+
+Data-lagring og søk foregår i `ElasticSearch` for å kunne utnytte muligheter som fasettering, paginering og bedre søk. 
+
+Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med korrekte data.
+
+
+## Teknologivalg
+
+* React og Redux som state management-bibliotek.
+* Webpack som bundler.
+* Semantic UI for frontend
+
+* Hele løsningen er skrevet i ES6-syntaks med elementer av ES7 (object spread, async/await)
+
+## Drift
+
+Løsningen kjører på `now` og krever lite tilsyn.
+
+Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
+
+
 ## Development
 
 ### Info
