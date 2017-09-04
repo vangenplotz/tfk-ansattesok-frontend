@@ -2,8 +2,9 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
 # Telemark Fylkeskommune, Web
+###### Relaterte prosjekter
+[https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-frontend.svg)](https://greenkeeper.io/)
 
 ## Oppgave-forståelse/løsning
 Vi har valgt å levere frontend, backend og drift.
@@ -19,32 +20,42 @@ Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med kor
 
 ## Teknologivalg
 
-* React og Redux som state management-bibliotek.
-* Webpack som bundler.
-* Semantic UI for frontend
-
+* [ReactJS](https://facebook.github.io/react/) med [Redux](http://redux.js.org/) som state management-bibliotek.
+* [Webpack](https://webpack.js.org/) som bundler.
+* [Semantic UI](https://react.semantic-ui.com) for frontend
+* [hapi.js](https://hapijs.com/) som applikasjonsserver
+* [Caddy](https://caddyserver.com/) som frontend/asset-server
 * Hele løsningen er skrevet i ES6-syntaks med elementer av ES7 (object spread, async/await)
+
 
 ## Drift
 
-Løsningen kjører på `now` og krever lite tilsyn.
+* Løsningen kjører på [now.sh](https://now.sh), som automatisk tar hånd om reverse proxy og SSL.
+* Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
+* Deployment gjøres automatisk av [Travis](https://travis-ci.org)
 
-Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
 
 
-## Development
+## Begrensninger
+* ElasticSearch og Backend kjører i forskjellige verdensdeler, dette medfører unødvendig lang responstid. 
+I et reelt case ville de kjørt nærmere hverandre.
+* Frontend-server leveres med en egen Dockerfile for produksjon i stedet for å benytte (https://hub.docker.com/r/abiosoft/caddy/). Dette skyldes at `now.sh` bare supporterer 1 `EXPOSE`-port, mens Caddy-imaget har 3.
 
-### Info
-Unless stated otherwise, all terminal commands are expected to be executed from the project root.
+## Lokal utvikling
 
-### Prerequisites
-You must have Docker and Docker-Compose installed.
+### Informasjon
+Med mindre annet er spesifisert forventes det at alle terminal-kommandoer kjøres fra roten av prosjektet.
 
-### Installation
-Run `$ docker-compose -p telemark build` in your terminal to build the image(s).
+### Forutsetninger
+For å kunne utvikle løsningen forventes det at man har [Docker](https://docker.com) og [Docker Compose](https://docs.docker.com/compose/) installert.
 
-**Note!** If you change dependencies in `package.json` you will need to rebuild the container image(s).
+Det forventes at denne løsningen kommuniserer med følgende backend løsning: [https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend).
 
-### Running the application
+### Installasjon
+Kjør `$ docker-compose -p telemark build` i terminalen for å bygge image(s).
 
-Run `$ docker-compose -p telemark up` in your terminal to start the application.
+**MERK!** Dersom du endrer dependencies i `package.json` må du rebuilde container image(s).
+
+### Starte applikasjonen
+
+Kjør `$ docker-compose -p telemark up` i terminalen for å starte applikasjonen.
