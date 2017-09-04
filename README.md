@@ -49,11 +49,17 @@ For å kunne utvikle løsningen forventes det at man har [Docker](https://docker
 
 Det forventes at denne løsningen kommuniserer med følgende backend løsning: [https://github.com/vangenplotz/tfk-ansattesok-backend](https://github.com/vangenplotz/tfk-ansattesok-backend).
 
+Det forventes at det finnes en `.env` fil med følgende innhold:
+
+```
+COMPOSE_PROJECT_NAME=telemark
+```
+
 ### Installasjon
-Kjør `$ docker-compose -p telemark build` i terminalen for å bygge image(s).
+Kjør `$ docker-compose build` i terminalen for å bygge image(s).
 
 **MERK!** Dersom du endrer dependencies i `package.json` må du rebuilde container image(s).
 
 ### Starte applikasjonen
 
-Kjør `$ docker-compose -p telemark up` i terminalen for å starte applikasjonen.
+Kjør `$ docker-compose up` i terminalen for å starte applikasjonen.
