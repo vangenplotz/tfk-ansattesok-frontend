@@ -24,15 +24,20 @@ Det forutsettes at det finnes en primærbase som kan seede ElasticSearch med kor
 * [ReactJS](https://facebook.github.io/react/) med [Redux](http://redux.js.org/) som state management-bibliotek.
 * [Webpack](https://webpack.js.org/) som bundler.
 * [Semantic UI](https://react.semantic-ui.com) for frontend
-
+* [hapi.js](https://hapijs.com/) som applikasjonsserver
 * Hele løsningen er skrevet i ES6-syntaks med elementer av ES7 (object spread, async/await)
 
 ## Drift
 
-Løsningen kjører på `now` og krever lite tilsyn.
+Løsningen kjører på [now.sh](https://now.sh), som automatisk tar hånd om reverse proxy og SSL.
 
 Tjenestene overvåkes med [StatusCake](https://statuscake.com) og sender varsler til Slack og E-post. Tjenestene anses ikke som viktig nok til å varsle på SMS.
 
+Deployment gjøres automatisk av [Travis](https://travis-ci.org)
+
+## Begrensninger
+* ElasticSearch og Backend kjører i forskjellige verdensdeler, dette medfører unødvendig lang responstid. 
+I et reelt case ville de kjørt nærmere hverandre.
 
 ## Lokal utvikling
 
