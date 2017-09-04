@@ -6,7 +6,6 @@ node_js:
 cache:
   yarn: true
 install:
-- yarn add global now
 - yarn install
 script:
 - node -r babel-register node_modules/.bin/webpack -p --config webpack.config.production.js
