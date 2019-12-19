@@ -52,7 +52,7 @@
     "semantic-ui": "^2.2.13",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^3.10.1"
   },
   "greenkeeper": {
     "ignore": [
